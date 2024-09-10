@@ -1,16 +1,41 @@
-# pl_monitor
+# Plant Monitoring App
 
-A new Flutter project.
+This is a Flutter-based Plant Monitoring application that tracks the moisture levels of various plants and provides real-time alerts when moisture levels fall below a certain threshold. <more>
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+### Prerequisites
 
-A few resources to get you started if this is your first Flutter project:
+- Flutter SDK: [Install Flutter](https://flutter.dev/docs/get-started/install)
+- Dart SDK: Included with Flutter
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Installation
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/your-username/plant-monitoring-app.git
+   cd plant-monitoring-app
+2. **Run the app**
+   
+      Go to `lib/main.dart` and run the file using `flutter run`
+
+
+
+### **Project Structure**
+
+`lib/main.dart`: The entry point of the app.
+
+`lib/providers/plant_provider.dart`: State management using the Provider package.
+
+`lib/pages/home.dart`: The main UI for the crop monitoring.
+
+`lib/utils/variables.dart`: Contains static data like plant names and images.
+
+### **Dependencies**
+
+`provider`: State management
+
+`flutter_tts`: Text-to-Speech for alerts
+
+`flutter`: Flutter SDK
