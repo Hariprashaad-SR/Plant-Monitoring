@@ -15,9 +15,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int _selectedPlantIndex = 0;
   final FlutterTts flutterTts = FlutterTts();
-  bool isOn = false;
-  Timer? _timer;
-  List<bool> hasAlertPlayed = [false, false, false, false, false];
+  List<bool> hasAlertPlayed = List<bool>.filled(5, false);
 
   @override
   void initState() {
@@ -42,31 +40,6 @@ class _HomeState extends State<Home> {
       _selectedPlantIndex = index;
       _checkMoistureLevel(index);
     });
-  }
-
-  void _toggleButton() {
-    setState(() {
-      if (isOn) {
-        _timer?.cancel();
-        isOn = false;
-      } else {
-        _startMoistureIncrement();
-        isOn = true;
-      }
-    });
-  }
-
-  void _startMoistureIncrement() {
-    _timer = Timer.periodic(const Duration(seconds: 1), (Timer timer) {
-      context.read<PlantProvider>().incrementMoistureLevel(_selectedPlantIndex);
-      _checkMoistureLevel(_selectedPlantIndex);
-    });
-  }
-
-  @override
-  void dispose() {
-    _timer?.cancel();
-    super.dispose();
   }
 
   @override
@@ -152,15 +125,17 @@ class _HomeState extends State<Home> {
             ),
             const Spacer(),
             ElevatedButton(
-              onPressed: _toggleButton, // Toggle the button
+              onPressed: () => context
+                  .read<PlantProvider>()
+                  .toggleButton(_selectedPlantIndex),
               style: ElevatedButton.styleFrom(
-                backgroundColor: !isOn
+                backgroundColor: !plantProvider.isOnList[_selectedPlantIndex]
                     ? const Color.fromARGB(255, 242, 168, 65)
                     : const Color.fromARGB(255, 255, 66, 82),
                 minimumSize: const Size(140, 40),
               ),
               child: Text(
-                isOn ? 'OFF' : 'ON', // Toggle between ON and OFF
+                plantProvider.isOnList[_selectedPlantIndex] ? 'OFF' : 'ON',
                 style:
                     const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),

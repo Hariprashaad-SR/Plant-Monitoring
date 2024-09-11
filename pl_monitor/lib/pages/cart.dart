@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pl_monitor/pages/confirm.dart';
 
 class CartPage extends StatefulWidget {
   final String plantName;
@@ -137,6 +138,13 @@ class _CartPageState extends State<CartPage> {
             ElevatedButton(
               onPressed: () {
                 setState(() => ordered = true);
+
+                // Navigate to the order confirmation page
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const OrderConfirmationPage()),
+                );
               },
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(vertical: 8),
