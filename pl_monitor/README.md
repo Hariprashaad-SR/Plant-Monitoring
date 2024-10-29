@@ -5,7 +5,7 @@ This is a Flutter-based Plant Monitoring application that tracks the moisture le
 ## Getting Started
 
 ### Prerequisites
-
+\
 - Flutter SDK: [Install Flutter](https://flutter.dev/docs/get-started/install)
 - Dart SDK: Included with Flutter
 

@@ -2,11 +2,11 @@ import 'dart:async'; // Importing Timer
 import 'package:flutter/material.dart';
 
 class PlantProvider with ChangeNotifier {
-  final List<int> _moistureLevels = [45, 55, 60, 40, 52];
+  final List<int> _moistureLevels = [50, 45, 68, 40, 52];
   int _weatherTemp = 24;
-  List<bool> _isOnList =
+  final List<bool> _isOnList =
       List<bool>.filled(5, false); // Tracks the ON/OFF state for each plant
-  List<Timer?> _timers =
+  final List<Timer?> _timers =
       List<Timer?>.filled(5, null); // Tracks the Timer for each plant
 
   List<int> get moistureLevels => _moistureLevels;
@@ -24,12 +24,14 @@ class PlantProvider with ChangeNotifier {
   }
 
   void incrementMoistureLevel(int index) {
-    _moistureLevels[index] += 1;
-    notifyListeners();
+    if (_moistureLevels[index] < 100) {
+      _moistureLevels[index] += 1;
+      notifyListeners();
+    }
   }
 
   void toggleButton(int index) {
-    if (_isOnList[index]) {
+    if (_isOnList[index] || _moistureLevels[index] > 99) {
       _timers[index]?.cancel();
       _isOnList[index] = false;
     } else {
