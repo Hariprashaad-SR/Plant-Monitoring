@@ -1,6 +1,6 @@
 # Plant Monitoring App
 
-This is a Flutter-based Plant Monitoring application that tracks the moisture levels of various plants and provides real-time alerts when moisture levels fall below a certain threshold. <more>
+This is a **Flutter-based Plant Monitoring application** that tracks the moisture levels of various plants and provides **real-time alerts** when moisture levels fall below a certain threshold. The app ensures plants are well-watered and taken care of through proactive monitoring and voice alerts. 🚀
 
 ## Getting Started
 
@@ -20,18 +20,6 @@ This is a Flutter-based Plant Monitoring application that tracks the moisture le
    
       Go to `lib/main.dart` and run the file using `flutter run`
 
-
-
-### **Project Structure**
-
-`lib/main.dart`: The entry point of the app.
-
-`lib/providers/plant_provider.dart`: State management using the Provider package.
-
-`lib/pages/home.dart`: The main UI for the crop monitoring.
-
-`lib/utils/variables.dart`: Contains static data like plant names and images.
-
 ### **Dependencies**
 
 `provider`: State management
@@ -39,3 +27,6 @@ This is a Flutter-based Plant Monitoring application that tracks the moisture le
 `flutter_tts`: Text-to-Speech for alerts
 
 `flutter`: Flutter SDK
+
+
+© 2024 Flutter Plant Monitoring App. Built with ❤️ using Flutter.
